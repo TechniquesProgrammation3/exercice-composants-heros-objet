@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { HeroService } from './hero.service';
 
 import { AppComponent } from './app.component';
 import { Page1Component } from './page1/page1.component';
@@ -14,6 +17,11 @@ import { HeroComponent } from './hero/hero.component';
 import { PiedPageComponent } from './pied-page/pied-page.component';
 
 import { MatCardModule } from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import { TableHerosComponent } from './table-heros/table-heros.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,15 +32,21 @@ import { MatCardModule } from '@angular/material/card';
     RechercheComponent,
     CarouselComponent,
     HeroComponent,
-    PiedPageComponent
+    PiedPageComponent,
+    TableHerosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    FormsModule,    
+    HttpClientModule, 
+    MatCardModule,
+    MatTableModule,    
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
